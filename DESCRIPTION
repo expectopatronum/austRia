@@ -1,0 +1,11 @@
+Package: austRia
+Title: Data about Austria
+Version: 0.0.1
+Authors@R: person("Verena", "Haunschmid", email = "verena@haunschmid.name", role = c("aut", "cre"))
+Description: Different data sets collected about Austria, e.g. information about elections 
+  from http://www.bmi.gv.at/.
+Depends: R (>= 3.2.4)
+License: CC0
+LazyData: true
+URL: https://github.com/expectopatronum/austRia
+BugReports: https://github.com/expectopatronum/austRia/issues
