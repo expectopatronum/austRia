@@ -25,3 +25,7 @@ Ich habe den Code, den ich zum Vorbereiten der Daten verwendet habe zur Nachvoll
 # install.packages("devtools")
 devtools::install_github("expectopatronum/austRia")
 ```
+
+## Demos
+
+Im Ordner `demos` befinden sich kurze Demos.

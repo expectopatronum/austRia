@@ -28,3 +28,7 @@ I included the source code (folder `prep_data`) that I used to create the datase
 # install.packages("devtools")
 devtools::install_github("expectopatronum/austRia")
 ```
+
+## Demos
+
+There are quick demos in `demos`.

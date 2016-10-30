@@ -1,0 +1,48 @@
+---
+title: "austRia Demo"
+output: html_notebook
+---
+
+```{r, eval=F}
+install.packages("devtools")
+devtools::install_github("expectopatronum/austRia")
+library("austRia")
+```
+
+# Data overview
+
+```{r}
+head(bpw_wg1)
+```
+
+```{r}
+head(bpw_wg2)
+```
+
+# Add state
+
+```{r}
+library(plyr)
+bpw_wg1$statenr <- as.factor(substr(bpw_wg1$gkz, 2, 2))
+bpw_wg1$state <- revalue(bpw_wg1$statenr, c("1"="Burgenland", "2"="Kärnten", "3"="Niederösterreich", "4"="Oberösterreich", "5"="Salzburg", "6"="Steiermark", "7"="Tirol", "8"="Vorarlberg", "9"="Wien"))
+```
+
+
+# Demo plot
+
+```{r}
+library(ggplot2)
+library(reshape2)
+```
+
+I select only the name of the municipality (`gebietsname`) and the candidates and melt the data.frame to get the counts per area and candidate.
+
+```{r}
+cand_counts <- melt(bpw_wg1[,c("state", "griss", "hofer", "hundstorfer", "khol", "lugner", "vanderbellen")], )
+names(cand_counts) <- c("state", "candidate", "votes")
+```
+
+```{r}
+ggplot(cand_counts) + geom_bar(aes(x=state, y=votes, group=candidate, fill=candidate), stat="identity", position="dodge") + scale_fill_manual(values=c("gray", "blue", "red", "black", "orange", "green")) + theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
